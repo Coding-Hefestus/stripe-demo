@@ -1,0 +1,39 @@
+
+ <!-- <form id="payment-form">
+    <div id="payment-element">
+     
+    </div>
+    <button id="submit">
+      <div class="spinner hidden" id="spinner"></div>
+      <span id="button-text">Pay now</span>
+    </button>
+    <div id="payment-message" class="hidden"></div>
+  </form> -->
+
+
+
+
+  <!-- <h2>Payment Request Button</h2>
+  <ngx-stripe-payment-request-button
+    [paymentOptions]="paymentRequestOptions"
+    (paymentMethod)="onPaymentMethod($event)"
+
+  ></ngx-stripe-payment-request-button> -->
+
+
+
+
+     <form [formGroup]="stripeTest">
+     <mat-form-field class="example-full-width" appearance="fill">
+        <input matInput placeholder="name" formControlName="name" />
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <input matInput placeholder="amount" type="number" formControlName="amount" />
+      </mat-form-field>
+      <ng-container *ngIf="elementsOptions?.clientSecret as clientSecret">
+        <ngx-stripe-payment [clientSecret]="clientSecret">
+        </ngx-stripe-payment>
+      </ng-container>
+      <button (click)="pay()">PAY</button> 
+    </form>
+
